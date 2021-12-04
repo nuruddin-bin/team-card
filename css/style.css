@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --icon-col: #512D6D;
+    --body-col: #7267CB;
+    --body-bef-col: #6E3CBC;
+}
+
+body {
+    background-color: var(--body-col);
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+
+body::before{
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    background: var(--body-bef-col);
+    clip-path: inset(45% 0 0 0);
+    z-index: -1;
+}
+
+.container {
+    max-width: 59.375rem;
+    width: 100%;
+    padding: 5rem 0;
+    overflow: hidden;
+}
+
+.main-card {
+    width: 200%;
+    display: flex;
+    justify-content: space-evenly;
+    transition: .5s;
+}  
+
+#two:checked ~ .main-card {
+    margin-left: -100%;
+}
+
+.cards{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 1.25rem;
+    width: calc(100% / 2 - 0.625rem);
+    flex-wrap: wrap;
+} 
+
+.card {
+    background: white;
+    width: calc(100% / 3 - 0.625rem);
+    padding: 1.875rem;
+    border-radius: 1.5rem;
+    transition: all .3s;
+}
+
+.card:hover {
+    transform: translateY(-1rem);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.img {
+    height: 8.125rem;
+    width: 8.125rem;
+    margin-bottom: 1rem;
+    background: var(--icon-col);
+    padding: 2px;
+    border-radius: 50%;
+}
+
+.img img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.details .name {
+    font-family: 'Fuzzy Bubbles', cursive;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: .2rem;
+    color: #161853;
+}
+
+.details .job {
+    font-family: 'Baloo Bhaijaan 2', cursive;
+    font-weight: bold;
+    color: #857c97;
+}
+
+.media-icon {
+    display: flex;
+    margin-top: 10px;
+}
+
+.media-icon a{
+    height: 2.188rem;
+    width: 2.188rem;
+    background: var(--icon-col);
+    color: white;
+    margin: 0 .25rem;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 2.063rem;
+    font-size: 0.875rem;    
+    border: 0.125rem solid transparent;
+    transition: .4s;
+}
+
+.media-icon a:hover {
+    border-color: var(--icon-col);
+    background: white;
+    color: var(--icon-col);
+}
+
+.button {
+    display: flex;
+    margin: 1.25rem;
+    justify-content: center;
+}
+
+.button label {
+    height: 1rem;
+    width: 1rem;
+    background: white;
+    margin: 0 .3rem;
+    border-radius: 3rem;
+    transition: .3s;
+}
+
+.button label.active {
+    width: 2.5rem;
+}
+
+#one:checked ~ .button label.one {
+    width: 2.5rem;
+}
+
+#two:checked ~ .button label.two {
+    width: 2.5rem;
+}
+
+#two:checked ~ .button label.one {
+    width: 1rem;
+}
+
+input {
+    display: none;
+}
+
+
+/* Responsive on (750px) */
+
+@media (max-width: 47.75rem) {
+    .card {
+        width: calc(100% / 2 - 0.625rem);
+        margin: 4rem 0 .4rem 0;
+    }
+}
+
+
+/* Responsive on (600px) */
+
+@media (max-width: 37.5rem) {
+    .card {
+        width: 100%;
+    }
+}
